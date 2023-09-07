@@ -7,6 +7,10 @@ import java.util.Locale;
 import java.util.Random;
 
 public class UserData {
+
+    private static String login = "app";
+    private static String password = "pass";
+
     @Value
     public static class CardInfo {
         private String cardNumber;
@@ -85,5 +89,14 @@ public class UserData {
     public static String generateInvalidCardNumber() {
         Faker faker = new Faker();
         return faker.numerify("##########");
+    }
+
+    public static String getLogin() {
+        return login;
+    }
+
+    public static String getPassword() {
+
+        return password;
     }
 }

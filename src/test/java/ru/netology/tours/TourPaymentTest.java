@@ -1,8 +1,8 @@
 package ru.netology.tours;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import ru.netology.tours.Data.SQL_Helper;
 import ru.netology.tours.Data.UserData;
 import ru.netology.tours.Data.UserData.CardInfo;
@@ -12,6 +12,14 @@ import ru.netology.tours.Page.PaymentPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TourPaymentTest {
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
     @BeforeEach
     void setup() {
         open("http://localhost:8080");

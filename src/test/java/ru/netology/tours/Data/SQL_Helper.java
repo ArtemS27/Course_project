@@ -12,7 +12,7 @@ public class SQL_Helper {
     private static final QueryRunner runner = new QueryRunner();
 
     private static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+        return DriverManager.getConnection(System.getProperty("db.url"), UserData.getLogin(), UserData.getPassword());
     }
     @SneakyThrows
     public static String getCardOperationStatus() {
